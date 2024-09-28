@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" required>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" required>
+
+            <button type="submit">Login</button>
+            <p id="login-error-message"></p>
+        </form>
+
+</body>
+<script>
+signInWithEmailAndPassword(auth, email, password)
+
+const signInBtn = document.getElementById('sign-in');
+signInBtn.addEventListener('click', () => {
+    console.log("clicked");
+    console.log("clicked");
+    
+    const email = document.querySelector('.input[type="text"]').value;
+    const password = document.querySelector('.input[type="password"]').value;
+
+        .then((userCredential) => {
+            console.log("loggedin");
+            const user = userCredential.user;
+            window.location.href = "../index.html";
+            console.log('User signed in:', user);
+        })
+        .catch((error) => {
+            console.log(error.code);
+            console.error('Error signing in:', error.message);
+        });
+});
+
+
+</script>
+</html>

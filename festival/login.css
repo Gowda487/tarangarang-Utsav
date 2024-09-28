@@ -1,0 +1,92 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Background image setup */
+  body {
+    background-image: url('p3.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Center form horizontally */
+    align-items: center;    /* Center form vertically */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Styling for the login container */
+  .login-container {
+    background-color:transparent; /* White background with slight transparency */
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+    text-align: center;
+  }
+  
+  /* Styling for the form heading */
+  .login-container h2 {
+    margin-bottom: 1.5rem;
+    color:white;
+  }
+  
+  /* Styling for form labels */
+  label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color:white;
+  }
+  
+  /* Styling for form input fields */
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Styling for the login button */
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for error message */
+  #login-error-message {
+    color: red;
+    margin-top: 1rem;
+  }
+  
+  /* Responsive design for smaller devices */
+  @media (max-width: 480px) {
+    .login-container {
+      padding: 1.5rem;
+    }
+  
+    input, button {
+      padding: 0.6rem;
+    }
+  }
+  
