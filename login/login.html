@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
     <div class="login-container">
         <h2>Login</h2>
@@ -23,15 +25,15 @@
 
 </body>
 <script>
-signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
 
-const signInBtn = document.getElementById('sign-in');
-signInBtn.addEventListener('click', () => {
-    console.log("clicked");
-    console.log("clicked");
-    
-    const email = document.querySelector('.input[type="text"]').value;
-    const password = document.querySelector('.input[type="password"]').value;
+    const signInBtn = document.getElementById('sign-in');
+    signInBtn.addEventListener('click', () => {
+        console.log("clicked");
+        console.log("clicked");
+
+        const email = document.querySelector('.input[type="text"]').value;
+        const password = document.querySelector('.input[type="password"]').value;
 
         .then((userCredential) => {
             console.log("loggedin");
@@ -39,12 +41,13 @@ signInBtn.addEventListener('click', () => {
             window.location.href = "../index.html";
             console.log('User signed in:', user);
         })
-        .catch((error) => {
-            console.log(error.code);
-            console.error('Error signing in:', error.message);
-        });
-});
+            .catch((error) => {
+                console.log(error.code);
+                console.error('Error signing in:', error.message);
+            });
+    });
 
 
 </script>
+
 </html>
