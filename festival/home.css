@@ -19,9 +19,11 @@ body {
     0% {
         background: linear-gradient(135deg, #667eea, #764ba2);
     }
+
     50% {
         background: linear-gradient(135deg, #764ba2, #667eea);
     }
+
     100% {
         background: linear-gradient(135deg, #667eea, #764ba2);
     }
@@ -39,11 +41,14 @@ h2 {
 @keyframes slideInFade {
     from {
         opacity: 0;
-        transform: translateX(-50px); /* Start slightly off-screen from the left */
+        transform: translateX(-50px);
+        /* Start slightly off-screen from the left */
     }
+
     to {
         opacity: 1;
-        transform: translateX(0); /* Slide to the original position */
+        transform: translateX(0);
+        /* Slide to the original position */
     }
 }
 
@@ -62,6 +67,7 @@ form {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -72,6 +78,7 @@ form {
         transform: translateY(-50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
