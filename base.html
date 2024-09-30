@@ -1,118 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarang | Festival Registration</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Include Firebase SDK -->
+    <title>Tarang</title>
+    <style>
+        body {
+    font-family: 'Verdana', sans-serif;
+    background: linear-gradient(135deg, #9b0582a2, #0505ee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+h1 {
+    color: #f7f7f7;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: popUp 0.8s ease forwards;
+    transform-origin: center;
+    opacity: 0;
+    font-size: 700%;
+}
+
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.reg {
+    width: 80%;
+    padding: 4px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    text-align: center;
+    align-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+    </style>
 </head>
-
 <body>
+    <h1> <CEnter>TARANG</CEnter></h1>
+    <br>
+    <div class="reg">
+    <a onclick="window.location.href='../index.html';">Gallery</a>
+</div>
 
-    <h2>Registration Form</h2>
 
-    <form id="registrationForm">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-            <label for="class">Class:</label>
-            <select id="class" name="class" required>
-                <option value="" disabled selected>Select your class</option>
-                <option value="BCA">BCA</option>
-                <option value="BCOM">BCOM</option>
-                <option value="BCOMAF">BCOM(A&F)</option>
-                <option value="BCOMLCSM">BCOM(LCSM)</option>
-                <option value="BBA">BBA</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="year">Year:</label>
-            <select id="year" name="year" required>
-                <option value="" disabled selected>Select your Year</option>
-                <option value="I">I</option>
-                <option value="II">II</option>
-                <option value="III">III</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="section">Section:</label>
-            <select id="section" name="section" required>
-                <option value="" disabled selected>Select your section</option>
-                <option value="I">Section A</option>
-                <option value="I">Section B</option>
-                <option value="I">Section C</option>
-                <option value="I">Section D</option>
-                <option value="I">Section E</option>
-                <option value="I">Section F</option>
-                <option value="I">Section G</option>
-                <option value="I">Section H</option>
-                <option value="I">Section I</option>
-
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="festival">Select Your Festival:</label>
-            <select id="festival" name="festival" required>
-                <option value="" disabled selected>Select Your Festival</option>
-                <option value="Ayudha Puja">Ayudha Puja</option>
-                <option value="Buddha Purnima">Buddha Purnima</option>
-                <option value="Bihu">Bihu</option>
-                <option value="Christmas">Christmas</option>
-                <option value="Durga Puja">Durga Puja</option>
-                <option value="Diwali">Diwali</option>
-                <option value="Eid al-Adha">Eid al-Adha</option>
-                <option value="Vaikuntha Ekadashi">Vaikuntha Ekadashi</option>
-                <option value="Easter Sunday">Easter Sunday</option>
-                <option value="Ganesh Chaturthi">Ganesh Chaturthi</option>
-                <option value="Gudi Padwa">Gudi Padwa</option>
-                <option value="Guru Purnima">Guru Purnima</option>
-                <option value="Guru Nanak Jayanti">Guru Nanak Jayanti</option>
-                <option value="Hanuman Jayanti">Hanuman Jayanti</option>
-                <option value="Janamashtami">Janamashtami</option>
-                <option value="Lohri">Lohri</option>
-                <option value="Lakshmi puja">Lakshmi Puja</option>
-                <option value="Makar Sankranti">Makar Sankranti</option>
-                <option value="Muharram">Muharram</option>
-                <option value="Mahashivratri">Mahashivratri</option>
-                <option value="Naga Panchami">Naga Panchami</option>
-                <option value="Navaratri">Navaratri</option>
-                <option value="Onam">Onam</option>
-                <option value="Pongal">Pongal</option>
-                <option value="Radha Ashtami">Radha Ashtami</option>
-                <option value="Ram Navami">Ram Navami</option>
-                <option value="Ratha Saptami">Ratha Saptami</option>
-                <option value="Ramazon">Ramazon</option>
-                <option value="Tulsi Pujan Diwas">Tulsi Pujan Diwas</option>
-                <option value="Ugadi">Ugadi</option>
-                <option value="Vishu Festival">Vishu Festival</option>
-                <option value="Others">Others</option>
-            </select>
-        </div>
-
-        <div class="form-group" id="other-festival-field" style="display: none;">
-            <label for="other-festival">Enter Your Festival Name:</label>
-            <input type="text" id="other-festival" name="other_festival" placeholder="Enter festival name">
-        </div>
-
-        <button type="submit">Submit</button>
-
-        <div class="login" style="text-align: center; margin-top: 20px;">
-            <a href="login/login.html">Login as Admin</a>
-        </div>
-
-        </div>
-    </form>
-     
-
-    <script src="script.js" type="module"></script>
 </body>
-
 </html>
