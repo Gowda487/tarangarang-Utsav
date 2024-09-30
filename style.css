@@ -71,7 +71,8 @@ form {
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom:1px;
+    padding:1px;
 }
 
 label {
@@ -141,7 +142,7 @@ select:hover {
 
     input[type="text"],
     select,
-    button {
+button {       
         font-size: 1rem;
     }
 }

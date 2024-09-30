@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarang</title>
+    <style>
+        body {
+    font-family: 'Verdana', sans-serif;
+    background: linear-gradient(135deg, #9b0582a2, #0505ee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+h1 {
+    color: #f7f7f7;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: popUp 0.8s ease forwards;
+    transform-origin: center;
+    opacity: 0;
+    font-size: 700%;
+}
+
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.reg {
+    width: 80%;
+    padding: 4px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    text-align: center;
+    align-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+    </style>
+</head>
+<body>
+    <h1> <CEnter>TARANG</CEnter></h1>
+    <br>
+    <div class="reg">
+    <a onclick="window.location.href='../index.html';">Gallery</a>
+</div>
+
+
+</body>
+</html>
