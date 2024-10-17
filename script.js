@@ -52,7 +52,7 @@ async function  checkClassDuplication(selectedClass,year,section,festivalName) {
     const q = query(
         registrationsRef,
         where('class','==',selectedClass),
-        where('year','!=',year),
+        where('year','==',year),
         where('section','==',section),
         where('festival','==',festivalName),
     );
