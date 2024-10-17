@@ -32,14 +32,33 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
     // Check if the festival is already registered
     const isRegistered = await checkFestivalRegistration(festivalName);
 
+    //  check for class duplication
+    const isClassDulpcated = await checkClassDuplication(selectedClass,year,section,festivalName) 
+
     if (isRegistered) {
         alert(`The festival "${festivalName}" is already registered.`);
+    } else if(isClassDulpcated) {
+        alert(`The class "${selectedClass}" for selected festival is already registered.`);   
     } else {
         // Store the registration data
         await storeRegistrationData(festivalName, selectedClass, year, section, name, status);
     }
 });
 
+// function to ckeck if a class is already registerd for same festival
+async function  checkClassDuplication(selectedClass,year,section,festivalName) {
+    const registrationsRef = collection(db,'registrations');
+    const q = query(
+        registrationsRef,
+        where('class','==',selectedClass),
+        where('year','==',year),
+        where('section','==',section),
+        where('festival','==',festivalName),
+    );
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty;//return true if class is duplicated
+    
+}
 // Function to check if a festival is already registered
 async function checkFestivalRegistration(festivalName) {
     const registrationsRef = collection(db, 'registrations');
