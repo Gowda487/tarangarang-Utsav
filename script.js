@@ -33,7 +33,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
     const isRegistered = await checkFestivalRegistration(festivalName);
 
     //  check for class duplication
-    const isClassDulpcated = await checkClassDuplication(selectedClass,year,section,festivalName) 
+    const isClassDulpicated = await checkClassDuplication(selectedClass,year,section,festivalName) 
 
     
     if (isRegistered) {
