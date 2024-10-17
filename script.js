@@ -35,10 +35,15 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
     //  check for class duplication
     const isClassDulpcated = await checkClassDuplication(selectedClass,year,section,festivalName) 
 
+    // Check if the same class has registered for a different festival
+    const isDifferentFestivalRegistered = await checkDifferentFestivalRegistration(selectedClass, year, section, festivalName);
+
     if (isRegistered) {
         alert(`The festival "${festivalName}" is already registered.`);
-    } else if(isClassDulpcated) {
-        alert(`The class "${selectedClass}" for selected festival is already registered.`);   
+    } else if (isClassDuplicated) {
+        alert(`The class "${selectedClass}" for selected festival is already registered.`);
+    } else if (isDifferentFestivalRegistered) {
+        alert(`Students in the class "${selectedClass}" for year ${year} and section ${section} cannot register for a different festival.`);
     } else {
         // Store the registration data
         await storeRegistrationData(festivalName, selectedClass, year, section, name, status);
@@ -50,10 +55,10 @@ async function  checkClassDuplication(selectedClass,year,section,festivalName) {
     const registrationsRef = collection(db,'registrations');
     const q = query(
         registrationsRef,
-        where('class','==',selectedClass),
-        where('year','==',year),
-        where('section','==',section),
-        where('festival','==',festivalName),
+        where('class','!=',selectedClass),
+        where('year','!=',year),
+        where('section','!=',section),
+        where('festival','!=',festivalName),
     );
     const querySnapshot = await getDocs(q);
     return !querySnapshot.empty;//return true if class is duplicated
