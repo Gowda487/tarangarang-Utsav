@@ -18,12 +18,12 @@ const db = getFirestore(app);
 document.getElementById('registrationForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Prevent default form submission
 
-    const name = document.getElementById('name').value;
+    const name = document.getElementById('name').value.trim();
     const selectedClass = document.getElementById('class').value;
     const year = document.getElementById('year').value;
     const section = document.getElementById('section').value;
     const festival = document.getElementById('festival').value;
-    const otherFestival = document.getElementById('other-festival').value;
+    const otherFestival = document.getElementById('other-festival').value.trim();
 
     // Determine festival name and status
     let festivalName = festival === 'Others' && otherFestival ? otherFestival : festival;
@@ -32,8 +32,8 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
     // Check if the festival is already registered
     const isRegistered = await checkFestivalRegistration(festivalName);
 
-    //  check for class duplication
-    const isClassDulpcated = await checkClassDuplication(selectedClass,year,section,festivalName) 
+    // Check for class duplication
+    const isClassDuplicated = await checkClassDuplication(selectedClass, year, section, festivalName);
 
     // Check if the same class has registered for a different festival
     const isDifferentFestivalRegistered = await checkDifferentFestivalRegistration(selectedClass, year, section, festivalName);
@@ -50,20 +50,20 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
     }
 });
 
-// function to ckeck if a class is already registerd for same festival
-async function  checkClassDuplication(selectedClass,year,section,festivalName) {
-    const registrationsRef = collection(db,'registrations');
+// Function to check if students in the same class have registered for a different festival
+async function checkDifferentFestivalRegistration(selectedClass, year, section, festivalName) {
+    const registrationsRef = collection(db, 'registrations');
     const q = query(
         registrationsRef,
-        where('class','!=',selectedClass),
-        where('year','!=',year),
-        where('section','!=',section),
-        where('festival','!=',festivalName),
+        where('class', '==', selectedClass),
+        where('year', '==', year),
+        where('section', '==', section),
+        where('festival', '!=', festivalName) // Check for a different festival
     );
     const querySnapshot = await getDocs(q);
-    return !querySnapshot.empty;//return true if class is duplicated
-    
+    return !querySnapshot.empty; // Return true if a different festival is registered
 }
+
 // Function to check if a festival is already registered
 async function checkFestivalRegistration(festivalName) {
     const registrationsRef = collection(db, 'registrations');
